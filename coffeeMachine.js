@@ -8,7 +8,7 @@ let money = 550;
 let cups = 9;
 let beans = 120;
 let sugar = 15;
-
+let pass = "FIRSTJS2023";
 function printCoffeeMachine(water, milk, money, cups, beans, sugar) {
     console.log(`
 The coffee machine has
@@ -166,9 +166,14 @@ while (1) {
         sugar += parseInt(s);
 
     } else if (action === "take") {
-        console.log("\n" + `I gave you $ ${money} money
+        let p = input.question("Please type in the password!\n");
+        if ( p === pass) {
+            console.log("\n" + `I gave you $ ${money} money
     `);
-        money = 0;
+            money = 0;
+        } else {
+            console.log("Password incorrect. No authority to take money from the machine!\n");
+        }
 
     } else if (action === "remaining") {
         printCoffeeMachine(water, milk, money, cups, beans, sugar);
